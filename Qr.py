@@ -6,7 +6,7 @@ ser = serial.Serial('/dev/serial0', baudrate=115200, timeout=1)
 def read_qr_code():
     ser.write(b'READ_QR\r\n')  # Send command to read QR code
     response = ser.readline()  # Read response from scanner
-    return response.decode('latin-1').strip()
+    return response.decode('utf-8').strip()
 
 def main():
     try:
